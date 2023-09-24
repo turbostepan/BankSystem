@@ -10,16 +10,16 @@ public class Terminal implements Bankomat {
     private boolean next = false;
     public ArrayList<Card> cards = new ArrayList<Card>();
     public ArrayList<ClientAcc> bankAccounts = new ArrayList<>();
-    public Card card1 = new Card(123456,1234,123);
-    public Card card2 = new Card(654321,4321,321);
-    public ClientAcc user1 = new ClientAcc("Stepan",1,1234, card1);
-    public ClientAcc user2 = new ClientAcc ("Slayik",2,4321, card2);
+    public Card card1 = new Card(111111,1111,111);
+    public Card card2 = new Card(111112,1111,112);
+    public ClientAcc user1 = new ClientAcc("Олег",1,1, card1);
+    public ClientAcc user2 = new ClientAcc ("Владмир",2,0.111, card2);
     Proverka cti = new Proverka();
     private int checkMethod() {
-        System.out.println("Что бы посмотреть баланс введите 1");
-        System.out.println("Что бы положить деньги введите 2");
-        System.out.println("Что бы снять деньги введите 3");
-        System.out.println("Что бы выйти с терминала введите 4");
+        System.out.println("Нажмите - 1, чтобы проверить баланс");
+        System.out.println("Нажмите - 2, чтобы внести сумму");
+        System.out.println("Нажмите - 3, чтобы обналичить сумму");
+        System.out.println("Нажмите - 4, для завершение работы");
         int method = cti.integer();
         return method;
     }
@@ -29,12 +29,12 @@ public class Terminal implements Bankomat {
         return pinCode;
     }
     private double checkMethodsTwo() {
-        System.out.println("Введите сумму которую хотите положить:");
+        System.out.println("Укажите сумму взноса:");
         double sum = sc.nextDouble();
         return sum;
     }
     private double checkMethodsThree() {
-        System.out.println("Введите сумму которую хотите снять:");
+        System.out.println("Укажите сумму которую желаете обналичить:");
         double sum = sc.nextDouble();
         return sum;
     }
@@ -49,7 +49,7 @@ public class Terminal implements Bankomat {
             insertCard(card);
             next = true;
         } else if (card == -1) {
-            System.out.println("Вы ввели не правильный тип данных");
+            System.out.println("Ошибка 11111111111 (не верный ввод данных)");
             terminate();
         }
 
@@ -63,7 +63,7 @@ public class Terminal implements Bankomat {
                 while (currentCard != null) {
                     int method = checkMethod();
                     if(method == -1){
-                        System.out.println("Вы ввели не правильный тип данных");
+                        System.out.println("Ошибка 11111111111 (не верный ввод данных)");
                         method = checkMethod();
                     }
                     if (method == 1) {
@@ -71,7 +71,7 @@ public class Terminal implements Bankomat {
                     } else if (method == 2) {
                         double sum = checkMethodsTwo();
                         if(sum == -1){
-                            System.out.println("Вы ввели не правильный тип данных");
+                            System.out.println("Ошибка 11111111111 (не верный ввод данных)");
                             sum = checkMethodsTwo();
                         }else {
                             deposit(sum);
@@ -79,19 +79,19 @@ public class Terminal implements Bankomat {
                     } else if (method == 3) {
                         double sum = checkMethodsThree();
                         if(sum == -1){
-                            System.out.println("Вы ввели не правильный тип данных");
+                            System.out.println("Ошибка 11111111111 (не верный ввод данных)");
                             sum = checkMethodsThree();
                         }else {
                             withdraw(sum);
                         }
                     } else if (method == 4) {
-                        System.out.println("Вы вышли из терминала");
+                        System.out.println("Удачного дня!");
                         ejectCard();
                     }
                 }
                 return;
             }else {
-                System.out.println("Вы ввели не правильный тип данных");
+                System.out.println("Ошибка 11111111111 (не верный ввод данных)");
                 pinCode = checkPinCode();
             }
         }
@@ -112,7 +112,7 @@ public class Terminal implements Bankomat {
             for(int i =0; i < bankAccounts.size(); i++) {
                 if (bankAccounts.get(i).getUserCard() == currentCard){
                     currentUser = bankAccounts.get(i);
-                    System.out.println("Добро пожаловать " + userName );
+                    System.out.println("Добро пожаловать " );
                     getCurrentUser();
                 }
             }
