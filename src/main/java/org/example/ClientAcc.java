@@ -2,14 +2,14 @@ package org.example;
 
 public class ClientAcc implements Client {
     private String userName;
-    private int accountId;
+    private int accountID;
     private double accountBalance;
     private Card userCard;
-    public ClientAcc(String userName, int accountId, double accountBalance, Card userCard) {
+    public ClientAcc(String userName, int accountID, double accountBalance, Card clientCard) {
         this.userName = userName;
-        this.accountId = accountId;
+        this.accountID = accountID;
         this.accountBalance = accountBalance;
-        this.userCard = userCard;
+        this.userCard = clientCard;
     }
 
     @Override
@@ -19,7 +19,7 @@ public class ClientAcc implements Client {
 
     @Override
     public int getAccountId() {
-        return accountId;
+        return accountID;
     }
 
     @Override

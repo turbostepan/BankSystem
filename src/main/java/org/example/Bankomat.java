@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public interface Bankomat {
     void insertCard(int cardNumber);
 
-    boolean enterPin(int pin);
+    boolean enterPin(int pinCode);
 
     Client getCurrentUser();
 

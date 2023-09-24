@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Proverka {
     public int integer() {
         Scanner sc = new Scanner(System.in);
-        int x;
+        int i;
         try {
-            x = sc.nextInt();
-            return x;
+            i = sc.nextInt();
+            return i;
         } catch (Exception e) {
             return -1;
         }

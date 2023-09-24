@@ -112,7 +112,7 @@ public class Terminal implements Bankomat {
             for(int i =0; i < bankAccounts.size(); i++) {
                 if (bankAccounts.get(i).getUserCard() == currentCard){
                     currentUser = bankAccounts.get(i);
-                    System.out.println("Вы успешно вошли");
+                    System.out.println("Добро пожаловать " + userName );
                     getCurrentUser();
                 }
             }
@@ -145,9 +145,9 @@ public class Terminal implements Bankomat {
         double x =currentUser.getAccountBalance();
         if (amount > 0) {
             currentUser.setAccountBalance(x += amount);
-            System.out.println("Успешно положили " + amount + "У вас на счету стало: " + x);
+            System.out.println("Вы внесли " + amount + "Средсв на счету: " + x);
         }else {
-            System.out.println("Вы ввели не допустимую сумму");
+            System.out.println("Ошибка 154 (недопустимая сумма)");
         }
     }
 
@@ -157,9 +157,9 @@ public class Terminal implements Bankomat {
         if (amount > 0 && amount <= x) {
 
             currentUser.setAccountBalance(x -= amount);
-            System.out.println("Успешно сняли " + amount + "У вас на счету стало: " + x);
+            System.out.println("Снято " + amount + "Средсв на счету: " + x);
         }else {
-            System.out.println("Вы ввели не допустимую сумму");
+            System.out.println("Ошибка 154 (недопустимая сумма)");
         }
     }
 
@@ -171,7 +171,7 @@ public class Terminal implements Bankomat {
 
     @Override
     public void blockCard() {
-        System.out.println("Вы заблакированны");
+        System.out.println("Система распознала в вас угрозу");
         currentCard.setIsBlocked(true);
     }
 }
